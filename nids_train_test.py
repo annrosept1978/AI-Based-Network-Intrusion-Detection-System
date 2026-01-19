@@ -4,6 +4,7 @@ This script trains a Random Forest classifier to detect network intrusions
 and evaluates its performance on test data.
 """
 
+import sys
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -33,13 +34,13 @@ def load_data(filename='network_traffic_data.csv'):
     except FileNotFoundError:
         print(f"Error: Dataset file '{filename}' not found.")
         print("Please generate the dataset first by running 'python generate_dataset.py'")
-        exit(1)
+        sys.exit(1)
     except pd.errors.EmptyDataError:
         print(f"Error: Dataset file '{filename}' is empty.")
-        exit(1)
+        sys.exit(1)
     except Exception as e:
         print(f"Error loading dataset: {e}")
-        exit(1)
+        sys.exit(1)
 
 def preprocess_data(data):
     """

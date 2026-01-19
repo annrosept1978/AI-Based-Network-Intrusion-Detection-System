@@ -3,6 +3,7 @@ Predict Network Traffic using Trained NIDS Model
 This script demonstrates how to use the trained model to classify new network traffic samples.
 """
 
+import sys
 import numpy as np
 import pandas as pd
 import joblib
@@ -24,11 +25,11 @@ def load_model_and_scaler():
     except FileNotFoundError as e:
         print(f"Error: Model files not found. Please train the model first by running 'python nids_train_test.py'")
         print(f"Missing file: {e.filename}")
-        exit(1)
+        sys.exit(1)
     except Exception as e:
         print(f"Error loading model files: {e}")
         print("The model files may be corrupted. Please retrain the model.")
-        exit(1)
+        sys.exit(1)
 
 def create_sample_traffic():
     """
