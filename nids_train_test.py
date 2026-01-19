@@ -26,9 +26,20 @@ def load_data(filename='network_traffic_data.csv'):
         DataFrame with the loaded data
     """
     print(f"Loading dataset from {filename}...")
-    data = pd.read_csv(filename)
-    print(f"Dataset loaded successfully! Shape: {data.shape}")
-    return data
+    try:
+        data = pd.read_csv(filename)
+        print(f"Dataset loaded successfully! Shape: {data.shape}")
+        return data
+    except FileNotFoundError:
+        print(f"Error: Dataset file '{filename}' not found.")
+        print("Please generate the dataset first by running 'python generate_dataset.py'")
+        exit(1)
+    except pd.errors.EmptyDataError:
+        print(f"Error: Dataset file '{filename}' is empty.")
+        exit(1)
+    except Exception as e:
+        print(f"Error loading dataset: {e}")
+        exit(1)
 
 def preprocess_data(data):
     """

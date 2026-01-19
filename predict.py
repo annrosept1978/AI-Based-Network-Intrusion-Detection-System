@@ -16,10 +16,19 @@ def load_model_and_scaler():
         scaler: Fitted StandardScaler
     """
     print("Loading trained model and scaler...")
-    model = joblib.load('nids_model.pkl')
-    scaler = joblib.load('scaler.pkl')
-    print("Model and scaler loaded successfully!")
-    return model, scaler
+    try:
+        model = joblib.load('nids_model.pkl')
+        scaler = joblib.load('scaler.pkl')
+        print("Model and scaler loaded successfully!")
+        return model, scaler
+    except FileNotFoundError as e:
+        print(f"Error: Model files not found. Please train the model first by running 'python nids_train_test.py'")
+        print(f"Missing file: {e.filename}")
+        exit(1)
+    except Exception as e:
+        print(f"Error loading model files: {e}")
+        print("The model files may be corrupted. Please retrain the model.")
+        exit(1)
 
 def create_sample_traffic():
     """
