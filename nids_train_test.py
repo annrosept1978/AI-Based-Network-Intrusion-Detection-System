@@ -125,6 +125,7 @@ def train_model(X_train, y_train):
     # Create Random Forest classifier
     # n_estimators: Number of trees in the forest
     # max_depth: Maximum depth of each tree (prevents overfitting)
+    #            Set to 10 to prevent overfitting on this small synthetic dataset
     # random_state: Ensures reproducibility
     model = RandomForestClassifier(
         n_estimators=100,

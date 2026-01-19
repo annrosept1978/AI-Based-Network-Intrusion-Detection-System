@@ -46,7 +46,7 @@ The system analyzes the following network traffic features:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/annrosept1978/AI-Based-Network-Intrusion-Detection-System.git
+   git clone https://github.com/<your-username>/AI-Based-Network-Intrusion-Detection-System.git
    cd AI-Based-Network-Intrusion-Detection-System
    ```
 
