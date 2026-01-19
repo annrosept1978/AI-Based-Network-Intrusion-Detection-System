@@ -91,8 +91,21 @@ Using Random Forest Classifier
 Loading dataset from network_traffic_data.csv...
 Dataset loaded successfully! Shape: (1000, 9)
 ...
-Accuracy: 95.00%
+Accuracy: 100.00%
 ```
+
+### Step 3: Make Predictions (Optional)
+After training the model, you can use it to classify new network traffic:
+
+```bash
+python predict.py
+```
+
+This script demonstrates how to:
+1. Load the trained model and scaler
+2. Create sample network traffic data
+3. Make predictions on new data
+4. Display detailed prediction results with confidence scores
 
 ## Project Structure
 ```
@@ -102,6 +115,7 @@ AI-Based-Network-Intrusion-Detection-System/
 ├── requirements.txt           # Python dependencies
 ├── generate_dataset.py        # Script to generate synthetic dataset
 ├── nids_train_test.py        # Main training and testing script
+├── predict.py                # Prediction demo script
 ├── network_traffic_data.csv  # Generated dataset (after running generate_dataset.py)
 ├── nids_model.pkl            # Trained model (after running nids_train_test.py)
 └── scaler.pkl                # Feature scaler (after running nids_train_test.py)
