@@ -22,7 +22,7 @@ The implementation uses a **Random Forest classifier**, an ensemble learning met
 
 The project includes a sample dataset (`network_data.csv`) containing network traffic features based on the KDD Cup 99 dataset structure. The dataset includes:
 
-- **41 features** describing network connections:
+- **40 features** describing network connections:
   - Basic features: duration, protocol type, service, flag
   - Content features: logged_in, num_file_creations, num_shells, etc.
   - Traffic features: count, srv_count, error rates
@@ -32,7 +32,7 @@ The project includes a sample dataset (`network_data.csv`) containing network tr
   - `Normal`: Legitimate network traffic
   - `Attack`: Malicious network activity
 
-The sample dataset contains 40 records for demonstration purposes.
+The sample dataset contains 41 records for demonstration purposes.
 
 ## 🚀 Installation
 

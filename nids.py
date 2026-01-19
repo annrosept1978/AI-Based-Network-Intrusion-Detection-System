@@ -139,11 +139,20 @@ def evaluate_model(model, X_test, y_test, label_encoder):
     cm = confusion_matrix(y_test, y_pred)
     print(cm)
     print(f"\nInterpretation:")
-    print(f"  True Negatives (Normal classified as Normal): {cm[0][0] if len(cm) > 0 else 0}")
-    print(f"  False Positives (Normal classified as Attack): {cm[0][1] if len(cm) > 0 else 0}")
-    if len(cm) > 1:
-        print(f"  False Negatives (Attack classified as Normal): {cm[1][0]}")
-        print(f"  True Positives (Attack classified as Attack): {cm[1][1]}")
+    
+    # Get class names in the order used by LabelEncoder
+    class_names = label_encoder.classes_
+    
+    # Safely interpret confusion matrix
+    if cm.shape[0] > 0 and cm.shape[1] > 0:
+        print(f"  {class_names[0]} classified as {class_names[0]}: {cm[0][0]}")
+        if cm.shape[1] > 1:
+            print(f"  {class_names[0]} classified as {class_names[1]}: {cm[0][1]}")
+    if cm.shape[0] > 1:
+        if cm.shape[1] > 0:
+            print(f"  {class_names[1]} classified as {class_names[0]}: {cm[1][0]}")
+        if cm.shape[1] > 1:
+            print(f"  {class_names[1]} classified as {class_names[1]}: {cm[1][1]}")
     
     return accuracy
 
